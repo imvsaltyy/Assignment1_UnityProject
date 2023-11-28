@@ -10,9 +10,9 @@ namespace PGGE
     {
         protected Transform mCameraTransform;
         protected Transform mPlayerTransform;
-        public float offsetDist = 0f;
+        public Vector3 offsetDist = new Vector3(0,0,0);
         private float maxRaycastDistance = 5f;
-        public float CameraHeight;
+        
         public Transform CameraTransform
         {
             get
@@ -40,7 +40,7 @@ namespace PGGE
             LayerMask mask = LayerMask.GetMask("Wall");
             //info of ray
             RaycastHit hit;
-
+            
             //between camera and player
             //mPlayerTransform.transform.TransformDirection(Vector3.back).normalized
             //to make the camera at head level by adding the y of the camera position
@@ -53,7 +53,7 @@ namespace PGGE
                 Debug.Log("Hit");
                 Debug.DrawLine(mCameraTransform.position, hit.point);
                 //transforming the camera to the hit point position (where ray hit the collider)
-                mCameraTransform.position = hit.point;
+                mCameraTransform.position = hit.point + offsetDist;
 
             }
             //else
