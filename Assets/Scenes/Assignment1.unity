@@ -998,7 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mPlayer: {fileID: 2145642068}
-  offsetDistance: 2
+  offsetDist: 0.5
 --- !u!114 &963194231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,8 +1011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80562f3618dbde344aed9755b471842c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2145642068}
-  offsetDistance: 0.2
 --- !u!1 &1096529070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1096529073
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,11 +1070,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096529070}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0832603c50f9fa442a09b25ac34f7826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mAnimator: {fileID: 2077232187}
+  mPlayerMovement: {fileID: 0}
+  mAttackButtons: 000000
+  mGunTransform: {fileID: 0}
+  mPlayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  mAudioSource: {fileID: 0}
+  mAudioClipGunShot: {fileID: 0}
+  mAudioClipReload: {fileID: 0}
 --- !u!114 &1096529076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,6 +1097,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3c36c686cc47d45ad14c6418e27f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nCharacterController: {fileID: 0}
+  nAnimator: {fileID: 2077232187}
+  nWalkSpeed: 1.5
+  nRotationSpeed: 50
+  nFollowCameraForward: 0
+  nTurnRate: 10
+  nGravity: -30
+  nJumpHeight: 1
 --- !u!1 &1263475369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1745,6 +1761,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7673487251499544684, guid: c98043d57e0190845b790d7b92990bee, type: 3}
   m_PrefabInstance: {fileID: 529669891}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2077232187 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 83b871b36d2bc154bab63a759ba0f1ec, type: 3}
+  m_PrefabInstance: {fileID: 1740167232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2130710306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,7 +1780,7 @@ GameObject:
   - component: {fileID: 2130710307}
   m_Layer: 10
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1835,7 +1856,7 @@ Transform:
   m_GameObject: {fileID: 2130710306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5, y: 1.5, z: 5}
-  m_LocalScale: {x: 10, y: 3, z: 0.2}
+  m_LocalScale: {x: 20, y: 10, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5

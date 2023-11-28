@@ -6,19 +6,19 @@ using UnityEngine;
 public class RepositionCamera : MonoBehaviour
 {
     public Transform mPlayer;
-
+    //ThirdPersonCamera TPC;
     private float cameraRotation;
     
     Vector3 targetPos;
 
-    public float offsetDistance = 0f;
+    public float offsetDist = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //hit = GetComponent<RaycastHit>();
-        Camera.main.transform.position = new Vector3(0,0.5f,0);
-        cameraRotation = 0f;
+        //Camera.main.transform.position = ThirdPersonCamera.transform.position;
+        //Camera.main.transform.position = new Vector3(0,0.5f,0);
+        //cameraRotation = 0f;
     }
 
     // Update is called once per frame
@@ -34,10 +34,11 @@ public class RepositionCamera : MonoBehaviour
         if (Physics.Raycast(transform.position, mPlayer.transform.TransformDirection(Vector3.back), out hit, Mathf.Infinity, mask))
         //if (hits.Any(x => x.collider.tag == "Wall"))
         {
-            Debug.DrawRay(transform.position, mPlayer.transform.TransformDirection(Vector3.back) * hit.distance, Color.yellow);
-            targetPos = (hit.point - transform.position) * 0.8f + transform.position;
-            
             Debug.Log("Hit");
+            Vector3 newCamPos = transform.position - mPlayer.transform.TransformDirection(Vector3.back) * offsetDist;
+            Camera.main.transform.position = newCamPos;
+            //targetPos = (hit.point - transform.position) * 0.8f + transform.position;
+            
         }
         //else
             //Debug.Log("Not hitting the wall");

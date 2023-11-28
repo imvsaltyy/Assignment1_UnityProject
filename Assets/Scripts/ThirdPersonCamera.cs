@@ -18,6 +18,7 @@ public class ThirdPersonCamera : MonoBehaviour
 
     TPCBase mThirdPersonCamera;
     // Get from Unity Editor.
+    //to make the camera height at head level
     public Vector3 mPositionOffset = new Vector3(0.0f, 2.0f, -2.5f);
     public Vector3 mAngleOffset = new Vector3(0.0f, 0.0f, 0.0f);
     [Tooltip("The damping factor to smooth the changes in position and rotation of the camera.")]
