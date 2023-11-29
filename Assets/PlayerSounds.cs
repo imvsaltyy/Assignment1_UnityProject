@@ -107,7 +107,6 @@ public class PlayerSounds : MonoBehaviour
         if (surface != MaterialSounds.Empty && clip != null)
         {
             footstepSource.clip = clip;
-            
 
             if (mAnimator.GetFloat("PosZ") == 1)
             {

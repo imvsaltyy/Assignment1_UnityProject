@@ -172,18 +172,18 @@ public class PlayerState_ATTACK : PlayerState
         
         // For tutor - start ---------------------------------------------//
         //Debug.Log("Ammo count: " + mPlayer.mAmunitionCount + ", In Magazine: " + mPlayer.mBulletsInMagazine);
-        if (mPlayer.mBulletsInMagazine == 0 && mPlayer.mAmunitionCount > 0)
-        {
-            mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
-            return;
-        }
+        //if (mPlayer.mBulletsInMagazine == 0 && mPlayer.mAmunitionCount > 0)
+        //{
+        //    mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
+        //    return;
+        //}
 
-        if (mPlayer.mAmunitionCount <= 0 && mPlayer.mBulletsInMagazine <= 0)
-        {
-            mPlayer.mFsm.SetCurrentState((int)PlayerStateType.MOVEMENT);
+        //if (mPlayer.mAmunitionCount <= 0 && mPlayer.mBulletsInMagazine <= 0)
+        //{
+        //    mPlayer.mFsm.SetCurrentState((int)PlayerStateType.MOVEMENT);
             
-            return;
-        }
+        //    return;
+        //}
 
         if (mPlayer.mAttackButtons[mAttackID])
         {
@@ -212,21 +212,21 @@ public class PlayerState_RELOAD : PlayerState
     public override void Enter()
     {
         mPlayer.mAnimator.SetTrigger("Recharge");
-        mPlayer.Reload();
+        //mPlayer.Reload();
         dt = 0.0f;
     }
     public override void Exit()
     {
-        if (mPlayer.mAmunitionCount > mPlayer.mMaxAmunitionBeforeReload)
-        {
-            mPlayer.mBulletsInMagazine += mPlayer.mMaxAmunitionBeforeReload;
-            mPlayer.mAmunitionCount -= mPlayer.mBulletsInMagazine;
-        }
-        else if (mPlayer.mAmunitionCount > 0 && mPlayer.mAmunitionCount < mPlayer.mMaxAmunitionBeforeReload)
-        {
-            mPlayer.mBulletsInMagazine += mPlayer.mAmunitionCount;
-            mPlayer.mAmunitionCount = 0;
-        }
+        //if (mPlayer.mAmunitionCount > mPlayer.mMaxAmunitionBeforeReload)
+        //{
+        //    mPlayer.mBulletsInMagazine += mPlayer.mMaxAmunitionBeforeReload;
+        //    mPlayer.mAmunitionCount -= mPlayer.mBulletsInMagazine;
+        //}
+        //else if (mPlayer.mAmunitionCount > 0 && mPlayer.mAmunitionCount < mPlayer.mMaxAmunitionBeforeReload)
+        //{
+        //    mPlayer.mBulletsInMagazine += mPlayer.mAmunitionCount;
+        //    mPlayer.mAmunitionCount = 0;
+        //}
     }
 
     public override void Update()
