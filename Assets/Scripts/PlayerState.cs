@@ -77,8 +77,7 @@ public class PlayerState_MOVEMENT : PlayerState
         {
             if (mPlayer.mAttackButtons[i])
             {
-                if (mPlayer.mBulletsInMagazine > 0)
-                {
+               
                     PlayerState_ATTACK attack =
                   (PlayerState_ATTACK)mFsm.GetState(
                             (int)PlayerStateType.ATTACK);
@@ -86,11 +85,7 @@ public class PlayerState_MOVEMENT : PlayerState
                     attack.AttackID = i;
                     mPlayer.mFsm.SetCurrentState(
                         (int)PlayerStateType.ATTACK);
-                }
-                else
-                {
-                    
-                }
+                
             }
         }
     }
@@ -129,7 +124,7 @@ public class PlayerState_ATTACK : PlayerState
         mPlayer.mAnimator.SetBool(mAttackName, true);
         mPlayer.mAttackCount++;
         Debug.Log(mPlayer.mAttackCount);
-        if (mPlayer.mAttackCount > 15)
+        if (mPlayer.mAttackCount > 10)
         {
             mPlayer.mAttackCount = 0;
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
