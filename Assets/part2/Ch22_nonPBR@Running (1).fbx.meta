@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 505019041346bdc4e9ff27f059933bdf
+guid: 82904cff10639c049b326df065a905b0
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Warming Up
+    second: Running (1)
+  - first:
+      74: -9121621101649706817
+    second: Running
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,22 +38,22 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Warming Up
+      name: Running
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 160
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0

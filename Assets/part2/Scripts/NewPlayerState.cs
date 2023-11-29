@@ -179,14 +179,14 @@ public class NewPlayerState_ATTACK : PlayerState
         if (mPlayer.mAmunitionCount <= 0 && mPlayer.mBulletsInMagazine <= 0)
         {
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.MOVEMENT);
-            mPlayer.NoAmmo();
+            
             return;
         }
 
         if (mPlayer.mAttackButtons[mAttackID])
         {
             mPlayer.mAnimator.SetBool(mAttackName, true);
-            mPlayer.Fire(AttackID);
+            
         }
         else
         {

@@ -89,7 +89,7 @@ public class PlayerState_MOVEMENT : PlayerState
                 }
                 else
                 {
-                    Debug.Log("No more ammo left");
+                    
                 }
             }
         }
@@ -127,6 +127,13 @@ public class PlayerState_ATTACK : PlayerState
     public override void Enter()
     {
         mPlayer.mAnimator.SetBool(mAttackName, true);
+        mPlayer.mAttackCount++;
+        Debug.Log(mPlayer.mAttackCount);
+        if (mPlayer.mAttackCount > 15)
+        {
+            mPlayer.mAttackCount = 0;
+            mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
+        }
     }
     public override void Exit()
     {
@@ -169,7 +176,7 @@ public class PlayerState_ATTACK : PlayerState
         // in implementing this section.        
         
         // For tutor - start ---------------------------------------------//
-        Debug.Log("Ammo count: " + mPlayer.mAmunitionCount + ", In Magazine: " + mPlayer.mBulletsInMagazine);
+        //Debug.Log("Ammo count: " + mPlayer.mAmunitionCount + ", In Magazine: " + mPlayer.mBulletsInMagazine);
         if (mPlayer.mBulletsInMagazine == 0 && mPlayer.mAmunitionCount > 0)
         {
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
@@ -179,14 +186,14 @@ public class PlayerState_ATTACK : PlayerState
         if (mPlayer.mAmunitionCount <= 0 && mPlayer.mBulletsInMagazine <= 0)
         {
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.MOVEMENT);
-            mPlayer.NoAmmo();
+            
             return;
         }
 
         if (mPlayer.mAttackButtons[mAttackID])
         {
             mPlayer.mAnimator.SetBool(mAttackName, true);
-            mPlayer.Fire(AttackID);
+            
         }
         else
         {
@@ -209,7 +216,7 @@ public class PlayerState_RELOAD : PlayerState
 
     public override void Enter()
     {
-        mPlayer.mAnimator.SetTrigger("Reload");
+        mPlayer.mAnimator.SetTrigger("Recharge");
         mPlayer.Reload();
         dt = 0.0f;
     }
