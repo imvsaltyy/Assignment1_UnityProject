@@ -13,30 +13,11 @@ public class Player : MonoBehaviour
 
     public int mAttackCount = 0;
 
-    // This is the maximum number of bullets that the player 
-    // needs to fire before reloading.
-    public int mMaxAmunitionBeforeReload = 40;
-
-    // This is the total number of bullets that the 
-    // player has.
-    [HideInInspector]
-    public int mAmunitionCount = 100;
-
-    // This is the count of bullets in the magazine.
-    [HideInInspector]
-    public int mBulletsInMagazine = 40;
-
     [HideInInspector]
     public bool[] mAttackButtons = new bool[3];
 
     public LayerMask mPlayerMask;
-    public AudioSource mAudioSource;
-
-
-    public int[] RoundsPerSecond = new int[3];
     
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -95,18 +76,5 @@ public class Player : MonoBehaviour
     {
         mPlayerMovement.HandleInputs();
         mPlayerMovement.Move();
-    }
-
-
-    public void Reload()
-    {
-        StartCoroutine(Coroutine_DelayReloadSound());
-    }
-
-    IEnumerator Coroutine_DelayReloadSound(float duration = 1.0f)
-    {
-        yield return new WaitForSeconds(duration);
-
-        
     }
 }
