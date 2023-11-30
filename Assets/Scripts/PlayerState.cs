@@ -121,12 +121,17 @@ public class PlayerState_ATTACK : PlayerState
 
     public override void Enter()
     {
+        //play the attack animation
         mPlayer.mAnimator.SetBool(mAttackName, true);
+        //increment by 1 to the attack count
         mPlayer.mAttackCount++;
         Debug.Log(mPlayer.mAttackCount);
+        //when attack count is more than 10
         if (mPlayer.mAttackCount > 10)
         {
+            //attack count is reseted to 0
             mPlayer.mAttackCount = 0;
+            //the recharge animation will be played
             mPlayer.mFsm.SetCurrentState((int)PlayerStateType.RELOAD);
         }
     }

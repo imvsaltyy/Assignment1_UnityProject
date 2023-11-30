@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Animator mAnimator;
     public PlayerMovement mPlayerMovement;
 
+    //the amount of attacks played
     public int mAttackCount = 0;
 
     [HideInInspector]
@@ -33,11 +34,8 @@ public class Player : MonoBehaviour
     {
         mFsm.Update();
         
-
-        // For Student ----------------------------------------------------//
-        // Implement the logic of button clicks for shooting. 
-        //-----------------------------------------------------------------//
-
+        //getbuttondown = one click of mouse
+        //getbutton = hold down mouse click
         if (Input.GetButtonDown("Fire1"))
         {
             mAttackButtons[0] = true;
